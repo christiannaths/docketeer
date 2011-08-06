@@ -1,13 +1,14 @@
 #!/usr/bin/env ruby
 
-require File.dirname(__FILE__) + '/../lib/docketeer'
-
 require 'rubygems'
 require 'commander/import'
 
+require File.dirname(__FILE__) + '/../lib/docketeer'
+require File.dirname(__FILE__) + '/../lib/docketeer/version'
+
 # :name is optional, otherwise uses the basename of this executable
 program :name, 'Docketeer'
-program :version, '1.0.0'
+program :version, Docketeer::VERSION
 program :description, 'Stupid command that prints foo or bar.'
 
 command :foo do |c|
