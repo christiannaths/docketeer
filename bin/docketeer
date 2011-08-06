@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require File.dirname(__FILE__) + '/../lib/docketeer'
+
+command = ARGV[0]
+directory = ARGV[1]
+project = ARGV[2]
+
+#if !command || !directory || !project
+puts "Usage: #{$0} <new> <client> <project>"
+#  #exit
+#end
+
+# $:.push File.join(directory, "lib")
+#
+# docketeer = Docketeer::Base.new(directory)
+# docketeer.run(command)

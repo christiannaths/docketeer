@@ -8,10 +8,12 @@ Gem::Specification.new do |s|
   s.authors     = ["Christian Naths"]
   s.email       = ["christiannaths@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Create and organize projects using by client name using unique docket numbers.}
+  s.description = %q{This gem will create a new folder structure for new projects and place them in a folder named with the name of the client. }
 
   s.rubyforge_project = "docketeer"
+
+  s.executables = ["docketeer"]
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
