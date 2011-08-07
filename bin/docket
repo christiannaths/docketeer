@@ -1,31 +1,52 @@
 #!/usr/bin/env ruby
 
-require 'rubygems'
-require 'commander/import'
-
 require File.dirname(__FILE__) + '/../lib/docketeer'
-require File.dirname(__FILE__) + '/../lib/docketeer/version'
+
 
 # :name is optional, otherwise uses the basename of this executable
 program :name, 'Docketeer'
 program :version, Docketeer::VERSION
-program :description, 'Stupid command that prints foo or bar.'
+program :description, 'Manage your projects'
 
-command :foo do |c|
-  c.syntax = 'foobar foo'
-  c.description = 'Displays foo'
+
+command :new do |c|
+  # Describe this command
+  c.syntax = 'docket new [options] <client name> <project name>'
+  c.description = 'Creates a new project docket'
+
+  # accept --path as an option
+  c.option '--path STRING', String, 'Use this root folder to store this project'
+
   c.action do |args, options|
-    say 'foo'
+    # Use arguments or ask if not found
+    client = args[0] || ask("Enter client name: ")
+    project = args[1] || ask("Enter project name: ")
+
+    # Create a new project
+    puts options.path
+    Docketeer::Project.new(client, project, options)
   end
+
 end
 
-command :bar do |c|
-  c.syntax = 'foobar bar [options]'
-  c.description = 'Display bar with optional prefix and suffix'
-  c.option '--prefix STRING', String, 'Adds a prefix to bar'
-  c.option '--suffix STRING', String, 'Adds a suffix to bar'
+command :config do |c|
+  # Describe this command
+  c.syntax = 'docket config [options]'
+  c.description = 'shows or modifies configuration variables'
+
+  c.option '--project_dir FILE', 'Set the default root folder for your projects'
+  c.option '--log_path FILE', "Set the path to the log file (a new one will be created if it doesn't already exist"
+
   c.action do |args, options|
-    options.default :prefix => '(', :suffix => ')'
-    say "#{options.prefix}bar#{options.suffix}"
+    config = Docketeer::Config.new
+
+    # Set the defaults from the current config file
+    options.default(
+      :project_dir => File.expand_path(config.project_dir),
+      :log_path  => File.expand_path(config.log_path)
+    )
+
+    config.set_project_dir(options.project_dir)
+    config.set_log_path(options.log_path)
   end
 end
