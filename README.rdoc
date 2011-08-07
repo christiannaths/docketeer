@@ -37,7 +37,9 @@ First of all it is assumed all of your projects are for a client, but clients ca
 
 There are only two configuation options: the path to the directory where you will store your projects and the path to the log file.
 
-  <tt> docket config --project_dir FILE --log_path FILE </tt>
+<tt>
+  docket config --project_dir FILE --log_path FILE
+</tt>
 
 
 === New Docket
