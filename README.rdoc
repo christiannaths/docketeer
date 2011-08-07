@@ -12,53 +12,55 @@ Docketeer aims to be a lightweight solution to the problem of organizing a large
 
 First of all it is assumed all of your projects are for a client, but clients can also be things like "Open Source", or "Personal". A docket is created any time you have a specfic task that needs to be accomplished for a client. Project folders are stored in the respective client folder. A client folder may contain many project folders. All of your client folders are stored in a parent folder. An example of the resulting folder heirarchy might look like this:
 
-- Projects
-  - Client A
-  - Client B
-    - 11001 Project Y
-    - 11004 Project Z
-  - Client C
+  - Projects
+    - Client A
+    - Client B
+      - 11001 Project Y
+      - 11004 Project Z
+    - Client C
 
 <b>A few things worth pointing out</b>
 
 - Project folders are great for storing files directly related to a specific project.
 - Client folders are great for storing files and folders directly related to that specific project.
 - The over-arching parent folder is great for storing client folders as well as files and folders which relate to all your projects, like a "Resources" folder that contains re-usable material like boilerplate code, stock artwork, or document templates.
+- Docket numbers are prepended by the 2 digit year, useful when searching for or archiving dockets
 
 
 == Use
 
 === Install
 
-  <tt> gem install docketeer </tt>
+  gem install docketeer
 
+---
 
 === Configure
 
 There are only two configuation options: the path to the directory where you will store your projects and the path to the log file.
 
-<tt>
-  docket config --project_dir FILE --log_path FILE
-</tt>
 
+  docket config --project_dir FILE --log_path FILE
+
+---
 
 === New Docket
 
 Create a new docket with:
 
-  <tt> docket new </tt>
+  docket new
 
 You will be prompted to enter the name of the client and the name of the project. A new docket number will be generated based on existing data in the log file and new folders will be created based on the client name (if an existing folder doesn't already exist) and project name prepended by the new docket number.
 
 You can also pass arguments to the <tt>#new</tt> command
 
-  <tt> docket new "Client A" "Project Y" </tt>
+  docket new "Client A" "Project Y"
 
 Remember to escape or quote strings with spaces and not to use unruly characters as the tool will attempt to create new folders using these arguments.
 
-  <tt> #new </tt> also accepts one option
+<tt> #new </tt> also accepts one option
 
-  <tt> docket new --path STRING </tt>
+  docket new --path STRING
 
 This allows you to override the config setting for <tt>project_dir</tt> this one time and store your project in a different folder. To set defaults please see the *Configure* section above.
 
@@ -73,11 +75,13 @@ This allows you to override the config setting for <tt>project_dir</tt> this one
   - remove last entry
   - clear <em>(scary!)</em>
 
+---
 
 === Contribute
 
 Feel free to fork and change!
 
+---
 
 === License (MIT)
 
