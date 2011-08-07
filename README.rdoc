@@ -1,0 +1,97 @@
+== Docketeer
+
+Docketeer is a simple command line tool to help you keep your projects organized with unique docket numbers.
+
+
+=== Why?
+
+Docketeer aims to be a lightweight solution to the problem of organizing a large number of projects on your computer. Running the command line tool creates a simple set of folders named and organized in a specific way. Unique docket numbers are generated and prepended to the project folder. This makes seaching for projects in your computer very trivial.
+
+
+=== Organization Method
+
+First of all it is assumed all of your projects are for a client, but clients can also be things like "Open Source", or "Personal". A docket is created any time you have a specfic task that needs to be accomplished for a client. Project folders are stored in the respective client folder. A client folder may contain many project folders. All of your client folders are stored in a parent folder. An example of the resulting folder heirarchy might look like this:
+
+- Projects
+  - Client A
+  - Client B
+    - 11001 Project Y
+    - 11004 Project Z
+  - Client C
+
+*A few things worth pointing out*
+
+- Project folders are great for storing files directly related to a specific project.
+- Client folders are great for storing files and folders directly related to that specific project.
+- The over-arching parent folder is great for storing client folders as well as files and folders which relate to all your projects, like a "Resources" folder that contains re-usable material like boilerplate code, stock artwork, or document templates.
+
+
+=== Install
+
++ gem install docketeer +
+
+
+=== Configure
+
+There are only two configuation options: the path to the directory where you will store your projects and the path to the log file.
+
++ docket config --project_dir FILE --log_path FILE +
+
+
+=== Use
+
+Create a new docket with:
+
++ docket new +
+
+You will be prompted to enter the name of the client and the name of the project. A new docket number will be generated based on existing data in the log file and new folders will be created based on the client name (if an existing folder doesn't already exist) and project name prepended by the new docket number.
+
+You can also pass arguments to the #new command
+
++ docket new "Client A" "Project Y" +
+
+Remember to escape or quote strings with spaces and not to use unruly characters as the tool will attempt to create new folders using these arguments.
+
++ #new + also accepts one option
+
++ docket new --path STRING +
+
+This allows you to override the config setting for +project_dir+ this one time and store your project in a different folder. To set defaults please see the *Configure* section above.
+
+
+=== TODO
+
+- change + --path + option to accept a FILE
+- change + --poth + option on + #new + to + --project_dir + so it is consistent with + #config + options
+- commands to work with the log file
+  - view
+  - remove last entry
+  - clear _(scary!)_
+
+
+=== Contribute
+
+Feel free to fork and change!
+
+
+=== License (MIT)
+
+Copyright (C) 2011 by Christian Naths
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
