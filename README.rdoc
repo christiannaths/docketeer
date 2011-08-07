@@ -19,7 +19,7 @@ First of all it is assumed all of your projects are for a client, but clients ca
     - 11004 Project Z
   - Client C
 
-*A few things worth pointing out*
+<b>A few things worth pointing out</b>
 
 - Project folders are great for storing files directly related to a specific project.
 - Client folders are great for storing files and folders directly related to that specific project.
@@ -28,45 +28,45 @@ First of all it is assumed all of your projects are for a client, but clients ca
 
 === Install
 
-+ gem install docketeer +
+<tt> gem install docketeer </tt>
 
 
 === Configure
 
 There are only two configuation options: the path to the directory where you will store your projects and the path to the log file.
 
-+ docket config --project_dir FILE --log_path FILE +
+<tt> docket config --project_dir FILE --log_path FILE </tt>
 
 
 === Use
 
 Create a new docket with:
 
-+ docket new +
+<tt> docket new </tt>
 
 You will be prompted to enter the name of the client and the name of the project. A new docket number will be generated based on existing data in the log file and new folders will be created based on the client name (if an existing folder doesn't already exist) and project name prepended by the new docket number.
 
 You can also pass arguments to the #new command
 
-+ docket new "Client A" "Project Y" +
+<tt> docket new "Client A" "Project Y" </tt>
 
 Remember to escape or quote strings with spaces and not to use unruly characters as the tool will attempt to create new folders using these arguments.
 
-+ #new + also accepts one option
+<tt> #new <tt> also accepts one option
 
-+ docket new --path STRING +
+<tt> docket new --path STRING </tt>
 
-This allows you to override the config setting for +project_dir+ this one time and store your project in a different folder. To set defaults please see the *Configure* section above.
+This allows you to override the config setting for <tt>project_dir<tt> this one time and store your project in a different folder. To set defaults please see the *Configure* section above.
 
 
 === TODO
 
-- change + --path + option to accept a FILE
-- change + --poth + option on + #new + to + --project_dir + so it is consistent with + #config + options
+- change <tt> --path <tt/> option to accept a FILE
+- change <tt> --poth <tt/> option on <tt> #new <tt/> to <tt> --project_dir <tt/> so it is consistent with <tt/> #config <tt/> options
 - commands to work with the log file
   - view
   - remove last entry
-  - clear _(scary!)_
+  - clear <em>(scary!)</em>
 
 
 === Contribute
